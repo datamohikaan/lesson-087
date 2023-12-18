@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuseki
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fuseki
+  template:
+    metadata:
+      labels:
+        app: fuseki
+    spec:
+      containers:
+        - name: fuseki
+          image: boscp08/fuseki:v231218
+          ports:
+            - containerPort: 3030
